@@ -20,8 +20,6 @@ namespace SchoolManagement.Tests.TestCases
         string path;
         string pathTxt;
 
-        //string t = Path.Combine(AppDomain.CurrentDomain.RelativeSearchPath, @"Assets\Test.txt");
-
         private static string type = "Functional";
         public FunctionalTests(ITestOutputHelper output)
         {
@@ -29,6 +27,7 @@ namespace SchoolManagement.Tests.TestCases
             string parentDir = fileInfo.Directory.Parent.Parent.Parent.Parent.ToString();
             path = Path.Combine(parentDir, @"SchoolManagement/Assets/ResultSheet.xlsx");
             pathTxt = Path.Combine(parentDir, @"SchoolManagement/Assets/Test.txt");
+
             _output = output;
             _school = new School()
             {
@@ -61,13 +60,13 @@ namespace SchoolManagement.Tests.TestCases
                 {
                     res = true;
                 }
-            }
+        }
             catch (Exception)
             {
                 status = Convert.ToString(res);
                 _output.WriteLine(testName + ":Failed");
                 await CallAPI.saveTestResult(testName, status, type);
-                return false;
+                Assert.True(false);               
             }
             ///Assert
             status = Convert.ToString(res);
@@ -78,6 +77,8 @@ namespace SchoolManagement.Tests.TestCases
             else
             {
                 _output.WriteLine(testName + ":Failed");
+                Assert.True(false);
+
             }
             await CallAPI.saveTestResult(testName, status, type);
             return res;
@@ -110,7 +111,7 @@ namespace SchoolManagement.Tests.TestCases
                 status = Convert.ToString(res);
                 _output.WriteLine(testName + ":Failed");
                 await CallAPI.saveTestResult(testName, status, type);
-                return false;
+                Assert.True(false);
             }
             ///Assert
             status = Convert.ToString(res);
@@ -121,6 +122,7 @@ namespace SchoolManagement.Tests.TestCases
             else
             {
                 _output.WriteLine(testName + ":Failed");
+                Assert.True(false);
             }
             await CallAPI.saveTestResult(testName, status, type);
             return res;
@@ -153,7 +155,7 @@ namespace SchoolManagement.Tests.TestCases
                 status = Convert.ToString(res);
                 _output.WriteLine(testName + ":Failed");
                 await CallAPI.saveTestResult(testName, status, type);
-                return false;
+                Assert.True(false);
             }
             ///Assert
             status = Convert.ToString(res);
@@ -164,6 +166,7 @@ namespace SchoolManagement.Tests.TestCases
             else
             {
                 _output.WriteLine(testName + ":Failed");
+                Assert.True(false);
             }
             await CallAPI.saveTestResult(testName, status, type);
             return res;
@@ -196,7 +199,7 @@ namespace SchoolManagement.Tests.TestCases
                 status = Convert.ToString(res);
                 _output.WriteLine(testName + ":Failed");
                 await CallAPI.saveTestResult(testName, status, type);
-                return false;
+                Assert.True(false);
             }
             ///Assert
             status = Convert.ToString(res);
@@ -207,6 +210,7 @@ namespace SchoolManagement.Tests.TestCases
             else
             {
                 _output.WriteLine(testName + ":Failed");
+                Assert.True(false);
             }
             await CallAPI.saveTestResult(testName, status, type);
             return res;
@@ -238,7 +242,7 @@ namespace SchoolManagement.Tests.TestCases
                 status = Convert.ToString(res);
                 _output.WriteLine(testName + ":Failed");
                 await CallAPI.saveTestResult(testName, status, type);
-                return false;
+                Assert.True(false);
             }
             ///Assert
             status = Convert.ToString(res);
@@ -249,6 +253,7 @@ namespace SchoolManagement.Tests.TestCases
             else
             {
                 _output.WriteLine(testName + ":Failed");
+                Assert.True(false);
             }
             await CallAPI.saveTestResult(testName, status, type);
             return res;
@@ -285,7 +290,7 @@ namespace SchoolManagement.Tests.TestCases
                 status = Convert.ToString(res);
                 _output.WriteLine(testName + ":Failed");
                 await CallAPI.saveTestResult(testName, status, type);
-                return false;
+                Assert.True(false);
             }
             ///Assert
             status = Convert.ToString(res);
@@ -296,6 +301,7 @@ namespace SchoolManagement.Tests.TestCases
             else
             {
                 _output.WriteLine(testName + ":Failed");
+                Assert.True(false);
             }
             await CallAPI.saveTestResult(testName, status, type);
             return res;

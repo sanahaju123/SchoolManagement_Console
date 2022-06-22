@@ -56,7 +56,7 @@ namespace SchoolManagement.Tests.TestCases
                 status = Convert.ToString(res);
                 _output.WriteLine(testName + ":Failed");
                 await CallAPI.saveTestResult(testName, status, type);
-                return false;
+                Assert.True(false);
             }
             ///Assert
             status = Convert.ToString(res);
@@ -67,6 +67,7 @@ namespace SchoolManagement.Tests.TestCases
             else
             {
                 _output.WriteLine(testName + ":Failed");
+                Assert.True(false);
             }
             await CallAPI.saveTestResult(testName, status, type);
             return res;

@@ -1,1 +1,2 @@
 
+[{"SchoolId":1,"SchoolName":"MySchool","Address":"Address1","NumberOfstudents":15,"DateofInauguration":"2022-06-22T22:48:27.91401+05:30"}]
