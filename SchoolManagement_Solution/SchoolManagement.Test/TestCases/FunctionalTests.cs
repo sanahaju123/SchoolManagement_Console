@@ -27,8 +27,8 @@ namespace SchoolManagement.Tests.TestCases
         {
             FileInfo fileInfo = new FileInfo(AppDomain.CurrentDomain.BaseDirectory);
             string parentDir = fileInfo.Directory.Parent.Parent.Parent.Parent.ToString();
-            path = Path.Combine(parentDir, @"SchoolManagement\Assets\ResultSheet.xlsx");
-            pathTxt = Path.Combine(parentDir, @"SchoolManagement\Assets\Test.txt");
+            path = Path.Combine(parentDir, @"SchoolManagement/Assets/ResultSheet.xlsx");
+            pathTxt = Path.Combine(parentDir, @"SchoolManagement/Assets/Test.txt");
             _output = output;
             _school = new School()
             {

@@ -17,8 +17,11 @@ namespace School_Management
         private static List<School> school = new List<School>();
         public static void Main()
         {
-            string path = @"..\..\..\Assets\ResultSheet.xlsx";
-            string pathTxt = @"..\..\..\Assets\Test.txt";
+            FileInfo fileInfo = new FileInfo(AppDomain.CurrentDomain.BaseDirectory);
+            string parentDir = fileInfo.Directory.Parent.Parent.Parent.Parent.ToString();
+            string path = Path.Combine(parentDir, @"SchoolManagement/Assets/ResultSheet.xlsx");
+            string pathTxt = Path.Combine(parentDir, @"SchoolManagement/Assets/Test.txt");
+
 
             ClearText(pathTxt, FileMode.Truncate);
 
