@@ -1,4 +1,5 @@
 ﻿using School_Management;
+using SchoolManagement;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -15,8 +16,6 @@ namespace SchoolManagement.Tests.TestCases
         /// </summary>
         private readonly ITestOutputHelper _output;
         private School _school;
-        string pathTxt = @"C:\Users\user\Downloads\Test.txt";
-        string path = @"C:\Users\user\Downloads\Result Sheet.xlsx";
         private static string type = "Boundary";
         public BoundaryTests(ITestOutputHelper output)
         {
@@ -47,7 +46,7 @@ namespace SchoolManagement.Tests.TestCases
             {
                 bool result = Program.DisplayAllDetails(school);
                 //Act
-                if (result == false)
+                if (result == true)
                 {
                     res = true;
                 }

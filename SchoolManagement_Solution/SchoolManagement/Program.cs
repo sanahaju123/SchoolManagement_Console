@@ -8,19 +8,20 @@ using Grpc.Core;
 using Microsoft.Office.Interop.Excel;
 using Newtonsoft.Json;
 using System.Web.Mvc;
+using System.Reflection;
 
 namespace School_Management
-{   
+{
     public class Program
     {
-        private static List<School> school = new List<School>();      
+        private static List<School> school = new List<School>();
         public static void Main()
         {
-             string path = @"C:\Users\user\Downloads\Result Sheet.xlsx";
-             string pathTxt = @"C:\Users\user\Downloads\Test.txt";
-
+            string path = @"..\..\..\Assets\ResultSheet.xlsx";
+            string pathTxt = @"..\..\..\Assets\Test.txt";
+           
             ClearText(pathTxt, FileMode.Truncate);
-            
+
             using (var workbook = new XLWorkbook())
             {
                 var worksheet = workbook.Worksheets.Add("School Details");
@@ -46,17 +47,17 @@ namespace School_Management
 
                     Console.Write("DateofInauguration: ");
                     DateTime date = DateTime.Parse(Console.ReadLine());
-                     
+
                     School _schoolDetails = new School(ID, name, address, count, date);
                     List<School> _school = new List<School>();
 
-                    AddSchoolDetails(worksheet, _schoolDetails, _school, i,workbook,path);
+                    AddSchoolDetails(worksheet, _schoolDetails, _school, i, workbook, path);
 
                 }
-                SerializeData(pathTxt,school);
+                SerializeData(pathTxt, school);
                 DeserializeData(pathTxt);
-                
-            }          
+
+            }
         }
 
         /// <summary>
@@ -66,7 +67,7 @@ namespace School_Management
         /// <param name="_schoolDetails"></param>
         /// <param name="_school"></param>
         /// <param name="i"></param>
-        public static bool AddSchoolDetails(IXLWorksheet worksheet,School _schoolDetails,List<School> _school, int i,XLWorkbook workbook,string path)
+        public static bool AddSchoolDetails(IXLWorksheet worksheet, School _schoolDetails, List<School> _school, int i, XLWorkbook workbook, string path)
         {
             bool res = false;
             try
@@ -91,7 +92,6 @@ namespace School_Management
                 return res; ;
             }
             return res;
-            
         }
 
         /// <summary>
@@ -101,7 +101,7 @@ namespace School_Management
         /// <param name="pathTxt"></param>
         /// <param name="workbook"></param>
         /// <param name="_school"></param>
-        public static bool SerializeData(string pathTxt,List<School> school)
+        public static bool SerializeData(string pathTxt, List<School> school)
         {
             bool res = false;
             try
@@ -122,7 +122,7 @@ namespace School_Management
         /// </summary>
         /// <param name="pathTxt"></param>
         /// <param name="jsonValue"></param>
-        public static bool SaveTextFile(string pathTxt,string jsonValue)
+        public static bool SaveTextFile(string pathTxt, string jsonValue)
         {
             bool res = false;
             try
@@ -173,9 +173,10 @@ namespace School_Management
             bool res = false;
             try
             {
-                for (int i = 0; i < 5; i++)
+                values.Reverse();
+                foreach (School skl in values)
                 {
-                    Console.WriteLine(i + ".", values[i].SchoolName);
+                    Console.WriteLine(skl.SchoolName);
                 }
                 res = true;
             }
@@ -197,6 +198,7 @@ namespace School_Management
             bool res = false;
             try
             {
+
                 using (var str = new FileStream(pathText, fileMode))
                 {
                     using (var writer = new StreamWriter(str))
@@ -206,14 +208,14 @@ namespace School_Management
                 }
                 res = true;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return res; 
+                return res;
             }
             return res;
-            }
         }
- }
-        
+    }
+    }
 
-   
+
+

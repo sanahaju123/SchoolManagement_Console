@@ -15,8 +15,6 @@ namespace SchoolManagement.Tests.TestCases
         /// </summary>
         private readonly ITestOutputHelper _output;
         private School _school;
-        string pathTxt = @"C:\Users\user\Downloads\Test.txt";
-        string path = @"C:\Users\user\Downloads\Result Sheet.xlsx";
         private static string type = "Exceptional";
         public ExceptionalTests(ITestOutputHelper output)
         {

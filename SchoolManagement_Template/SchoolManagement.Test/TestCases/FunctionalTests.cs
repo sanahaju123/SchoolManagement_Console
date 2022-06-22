@@ -17,11 +17,18 @@ namespace SchoolManagement.Tests.TestCases
         /// </summary>
         private readonly ITestOutputHelper _output;
         private School _school;
-        string pathTxt = @"C:\Users\user\Downloads\Test.txt";
-        string path = @"C:\Users\user\Downloads\Result Sheet.xlsx";
+        string path;
+        string pathTxt;
+
+        //string t = Path.Combine(AppDomain.CurrentDomain.RelativeSearchPath, @"Assets\Test.txt");
+
         private static string type = "Functional";
         public FunctionalTests(ITestOutputHelper output)
         {
+            FileInfo fileInfo = new FileInfo(AppDomain.CurrentDomain.BaseDirectory);
+            string parentDir = fileInfo.Directory.Parent.Parent.Parent.Parent.ToString();
+            path = Path.Combine(parentDir, @"SchoolManagement\Assets\ResultSheet.xlsx");
+            pathTxt = Path.Combine(parentDir, @"SchoolManagement\Assets\Test.txt");
             _output = output;
             _school = new School()
             {
@@ -48,7 +55,7 @@ namespace SchoolManagement.Tests.TestCases
             testName = CallAPI.GetCurrentMethodName();
             try
             {
-                bool result=Program.SerializeData(pathTxt,school);
+                bool result = Program.SerializeData(pathTxt, school);
                 //Act
                 if (result == true)
                 {
@@ -90,10 +97,10 @@ namespace SchoolManagement.Tests.TestCases
             testName = CallAPI.GetCurrentMethodName();
             try
             {
-                bool result =Program.DeserializeData(pathTxt);
-                
+                bool result = Program.DeserializeData(pathTxt);
+
                 //Act
-                if (result==true)
+                if (result == true)
                 {
                     res = true;
                 }
@@ -179,7 +186,7 @@ namespace SchoolManagement.Tests.TestCases
             {
                 bool result = Program.DisplayAllDetails(school);
                 //Act
-                if (result == false)
+                if (result == true)
                 {
                     res = true;
                 }
@@ -266,7 +273,7 @@ namespace SchoolManagement.Tests.TestCases
             school.Add(_school);
             try
             {
-                bool result = Program.AddSchoolDetails(worksheet,_school,school,i, workbook,path);
+                bool result = Program.AddSchoolDetails(worksheet, _school, school, i, workbook, path);
                 //Act
                 if (result == false)
                 {
@@ -295,4 +302,4 @@ namespace SchoolManagement.Tests.TestCases
         }
     }
 }
-   
+
