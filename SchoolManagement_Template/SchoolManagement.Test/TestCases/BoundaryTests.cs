@@ -29,12 +29,13 @@ namespace SchoolManagement.Tests.TestCases
                 DateofInauguration = DateTime.Now
             };
         }
+
         /// <summary>
         /// Validate Display All Details.
         /// </summary>
         /// <returns></returns>
         [Fact]
-        public async Task<bool> testFor_ValidateDisplayAllDetails()
+        public async Task<bool> TestFor_ValidateDisplayAllDetails()
         {
             //Arrange
             bool res = false;
@@ -56,7 +57,7 @@ namespace SchoolManagement.Tests.TestCases
                 status = Convert.ToString(res);
                 _output.WriteLine(testName + ":Failed");
                 await CallAPI.saveTestResult(testName, status, type);
-                Assert.True(false);
+                return false;
             }
             ///Assert
             status = Convert.ToString(res);
@@ -67,7 +68,6 @@ namespace SchoolManagement.Tests.TestCases
             else
             {
                 _output.WriteLine(testName + ":Failed");
-                Assert.True(false);
             }
             await CallAPI.saveTestResult(testName, status, type);
             return res;

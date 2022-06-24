@@ -28,12 +28,13 @@ namespace SchoolManagement.Tests.TestCases
                 DateofInauguration = DateTime.Now
             };
         }
+
         /// <summary>
         /// If passing null will return false.
         /// </summary>
         /// <returns></returns>
         [Fact]
-        public async Task<bool> testFor_ReturnFalse_DisplayAllDetails()
+        public async Task<bool> TestFor_ReturnFalse_DisplayAllDetails()
         {
             //Arrange
             bool res = false;
@@ -55,7 +56,7 @@ namespace SchoolManagement.Tests.TestCases
                 status = Convert.ToString(res);
                 _output.WriteLine(testName + ":Failed");
                 await CallAPI.saveTestResult(testName, status, type);
-                Assert.True(false);
+                return false;
             }
             ///Assert
             status = Convert.ToString(res);
@@ -66,7 +67,6 @@ namespace SchoolManagement.Tests.TestCases
             else
             {
                 _output.WriteLine(testName + ":Failed");
-                Assert.True(false);
             }
             await CallAPI.saveTestResult(testName, status, type);
             return res;

@@ -86,7 +86,7 @@ namespace School_Management
         {
             throw new NotImplementedException();
         }
-
+        
         /// <summary>
         /// JSON format save in text file. 
         /// </summary>
@@ -105,7 +105,6 @@ namespace School_Management
         {
             throw new NotImplementedException();
         }
-
 
 
         /// <summary>

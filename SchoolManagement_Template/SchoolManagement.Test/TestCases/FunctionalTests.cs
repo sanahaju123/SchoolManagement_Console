@@ -44,7 +44,7 @@ namespace SchoolManagement.Tests.TestCases
         /// </summary>
         /// <returns></returns>
         [Fact]
-        public async Task<bool> testFor_Serialization()
+        public async Task<bool> TestFor_Serialization()
         {
             //Arrange
             bool res = false;
@@ -60,14 +60,16 @@ namespace SchoolManagement.Tests.TestCases
                 {
                     res = true;
                 }
-        }
+            }
+
             catch (Exception)
             {
                 status = Convert.ToString(res);
                 _output.WriteLine(testName + ":Failed");
                 await CallAPI.saveTestResult(testName, status, type);
-                Assert.True(false);               
+                return false;              
             }
+
             ///Assert
             status = Convert.ToString(res);
             if (res == true)
@@ -77,8 +79,7 @@ namespace SchoolManagement.Tests.TestCases
             else
             {
                 _output.WriteLine(testName + ":Failed");
-                Assert.True(false);
-
+               
             }
             await CallAPI.saveTestResult(testName, status, type);
             return res;
@@ -90,7 +91,7 @@ namespace SchoolManagement.Tests.TestCases
         /// </summary>
         /// <returns></returns>
         [Fact]
-        public async Task<bool> testFor_Deserialization()
+        public async Task<bool> TestFor_Deserialization()
         {
             //Arrange
             bool res = false;
@@ -106,13 +107,15 @@ namespace SchoolManagement.Tests.TestCases
                     res = true;
                 }
             }
+
             catch (Exception)
             {
                 status = Convert.ToString(res);
                 _output.WriteLine(testName + ":Failed");
                 await CallAPI.saveTestResult(testName, status, type);
-                Assert.True(false);
+                return false;
             }
+
             ///Assert
             status = Convert.ToString(res);
             if (res == true)
@@ -122,7 +125,6 @@ namespace SchoolManagement.Tests.TestCases
             else
             {
                 _output.WriteLine(testName + ":Failed");
-                Assert.True(false);
             }
             await CallAPI.saveTestResult(testName, status, type);
             return res;
@@ -134,7 +136,7 @@ namespace SchoolManagement.Tests.TestCases
         /// </summary>
         /// <returns></returns>
         [Fact]
-        public async Task<bool> testFor_Save_TextFile()
+        public async Task<bool> TestFor_Save_TextFile()
         {
             //Arrange
             bool res = false;
@@ -150,13 +152,15 @@ namespace SchoolManagement.Tests.TestCases
                     res = true;
                 }
             }
+
             catch (Exception)
             {
                 status = Convert.ToString(res);
                 _output.WriteLine(testName + ":Failed");
                 await CallAPI.saveTestResult(testName, status, type);
-                Assert.True(false);
+                return false;
             }
+
             ///Assert
             status = Convert.ToString(res);
             if (res == true)
@@ -166,7 +170,6 @@ namespace SchoolManagement.Tests.TestCases
             else
             {
                 _output.WriteLine(testName + ":Failed");
-                Assert.True(false);
             }
             await CallAPI.saveTestResult(testName, status, type);
             return res;
@@ -177,7 +180,7 @@ namespace SchoolManagement.Tests.TestCases
         /// </summary>
         /// <returns></returns>
         [Fact]
-        public async Task<bool> testFor_DisplayAllDetails()
+        public async Task<bool> TestFor_DisplayAllDetails()
         {
             //Arrange
             bool res = false;
@@ -194,13 +197,15 @@ namespace SchoolManagement.Tests.TestCases
                     res = true;
                 }
             }
+
             catch (Exception)
             {
                 status = Convert.ToString(res);
                 _output.WriteLine(testName + ":Failed");
                 await CallAPI.saveTestResult(testName, status, type);
-                Assert.True(false);
+                return false;
             }
+
             ///Assert
             status = Convert.ToString(res);
             if (res == true)
@@ -210,7 +215,6 @@ namespace SchoolManagement.Tests.TestCases
             else
             {
                 _output.WriteLine(testName + ":Failed");
-                Assert.True(false);
             }
             await CallAPI.saveTestResult(testName, status, type);
             return res;
@@ -221,7 +225,7 @@ namespace SchoolManagement.Tests.TestCases
         /// </summary>
         /// <returns></returns>
         [Fact]
-        public async Task<bool> testFor_ClearText()
+        public async Task<bool> TestFor_ClearText()
         {
             //Arrange
             bool res = false;
@@ -237,13 +241,15 @@ namespace SchoolManagement.Tests.TestCases
                     res = true;
                 }
             }
+
             catch (Exception)
             {
                 status = Convert.ToString(res);
                 _output.WriteLine(testName + ":Failed");
                 await CallAPI.saveTestResult(testName, status, type);
-                Assert.True(false);
+                return false;
             }
+
             ///Assert
             status = Convert.ToString(res);
             if (res == true)
@@ -253,7 +259,6 @@ namespace SchoolManagement.Tests.TestCases
             else
             {
                 _output.WriteLine(testName + ":Failed");
-                Assert.True(false);
             }
             await CallAPI.saveTestResult(testName, status, type);
             return res;
@@ -264,12 +269,11 @@ namespace SchoolManagement.Tests.TestCases
         /// </summary>
         /// <returns></returns>
         [Fact]
-        public async Task<bool> testFor_AddSchoolDetails()
+        public async Task<bool> TestFor_AddSchoolDetails()
         {
             //Arrange
             bool res = false;
             string testName; string status;
-            FileMode fileMode = FileMode.Truncate;
             testName = CallAPI.GetCurrentMethodName();
             IXLWorksheet worksheet = null;
             XLWorkbook workbook = null;
@@ -285,14 +289,16 @@ namespace SchoolManagement.Tests.TestCases
                     res = true;
                 }
             }
+
             catch (Exception)
             {
                 status = Convert.ToString(res);
                 _output.WriteLine(testName + ":Failed");
                 await CallAPI.saveTestResult(testName, status, type);
-                Assert.True(false);
+                return false;
             }
-            ///Assert
+
+            //Assert
             status = Convert.ToString(res);
             if (res == true)
             {
@@ -301,7 +307,6 @@ namespace SchoolManagement.Tests.TestCases
             else
             {
                 _output.WriteLine(testName + ":Failed");
-                Assert.True(false);
             }
             await CallAPI.saveTestResult(testName, status, type);
             return res;
