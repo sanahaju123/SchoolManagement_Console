@@ -18,11 +18,11 @@ namespace SchoolManagement.Tests.TestCases
             Dictionary<string, TestCaseResultDto> testCaseResults = new Dictionary<string, TestCaseResultDto>();
             string customValue = System.IO.File.ReadAllText("../../../../custom.ih");
             testResults.CustomData = customValue;
-            int actualScore = 0;
+            int earnedScore = 0;
             String testStatus = "Failed";
             if (status.Equals("True"))
             {
-                actualScore = 1;
+                earnedScore = 1;
                 testStatus = "Passed";
             }
 
@@ -30,8 +30,8 @@ namespace SchoolManagement.Tests.TestCases
             {
                 MethodName = testName,
                 MethodType = type,
-                EarnedScore = 1,
-                ActualScore = actualScore,
+                EarnedScore = earnedScore,
+                ActualScore = 1,
                 Status = testStatus,
                 IsMandatory = true
             });
